@@ -154,10 +154,10 @@ app.put('/products/:id', async(req, res)=>{
     const {name, specifications} = req.body;
     const product_id = req.params.id;
     if(product_id && name){
-        await db.query('update customers set name = $1 where product_id = $2',[name, product_id]);
+        await db.query('update products set name = $1 where product_id = $2',[name, product_id]);
         res.status(200).send('Update completed');
     }else if(product_id && specifications){
-        await db.query('update customers set specifications = $1 where product_id = $2',[specifications, product_id]);
+        await db.query('update products set specifications = $1 where product_id = $2',[specifications, product_id]);
         res.status(200).send('Update Completed');
     }else{
         res.status(404).send('All details are not sent');

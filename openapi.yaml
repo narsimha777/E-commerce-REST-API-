@@ -1,0 +1,260 @@
+openapi: 3.0.1
+info:
+  title: E-Commerce(REST-API)
+  version: 1.0.0
+  description: A backend project for a E-Commerce site.
+paths:
+  /:
+    summary: To retrieve details from all tables in the database
+    get:
+      summary: To retrieve order status, product name, customer name from the database.
+      description: ''
+      operationId: get_details
+      responses:
+        default:
+          description: Default error sample response
+          content:
+            application/json:
+              examples:
+                get_details:
+                  value: >-
+                    {"command":"SELECT","rowCount":1,"oid":null,"rows":[{"status":"pending","name":"Narsimha_Reddy"}],"fields":[{"name":"status","tableID":16735,"columnID":1,"dataTypeID":1043,"dataTypeSize":-1,"dataTypeModifier":54,"format":"text"},{"name":"name","tableID":16730,"columnID":2,"dataTypeID":1043,"dataTypeSize":-1,"dataTypeModifier":54,"format":"text"},{"name":"name","tableID":16725,"columnID":2,"dataTypeID":1043,"dataTypeSize":-1,"dataTypeModifier":54,"format":"text"}],"_parsers":[null,null,null],"_types":{"_types":{"arrayParser":{},"builtins":{"BOOL":16,"BYTEA":17,"CHAR":18,"INT8":20,"INT2":21,"INT4":23,"REGPROC":24,"TEXT":25,"OID":26,"TID":27,"XID":28,"CID":29,"JSON":114,"XML":142,"PG_NODE_TREE":194,"SMGR":210,"PATH":602,"POLYGON":604,"CIDR":650,"FLOAT4":700,"FLOAT8":701,"ABSTIME":702,"RELTIME":703,"TINTERVAL":704,"CIRCLE":718,"MACADDR8":774,"MONEY":790,"MACADDR":829,"INET":869,"ACLITEM":1033,"BPCHAR":1042,"VARCHAR":1043,"DATE":1082,"TIME":1083,"TIMESTAMP":1114,"TIMESTAMPTZ":1184,"INTERVAL":1186,"TIMETZ":1266,"BIT":1560,"VARBIT":1562,"NUMERIC":1700,"REFCURSOR":1790,"REGPROCEDURE":2202,"REGOPER":2203,"REGOPERATOR":2204,"REGCLASS":2205,"REGTYPE":2206,"UUID":2950,"TXID_SNAPSHOT":2970,"PG_LSN":3220,"PG_NDISTINCT":3361,"PG_DEPENDENCIES":3402,"TSVECTOR":3614,"TSQUERY":3615,"GTSVECTOR":3642,"REGCONFIG":3734,"REGDICTIONARY":3769,"JSONB":3802,"REGNAMESPACE":4089,"REGROLE":4096}},"text":{},"binary":{}},"RowCtor":null,"rowAsArray":false,"_prebuiltEmptyResultObject":{"status":null,"name":null}}
+      tags:
+        - details
+  /orders:
+    summary: To get every order details in database.
+    get:
+      summary: To retrieve full information of all orders present in database.
+      description: >-
+        This is actually used to retrieve complete data about every order
+        present in the orders table from our database.
+      operationId: get_orders
+      responses:
+        default:
+          description: Default error sample response
+          content:
+            application/json:
+              examples:
+                get_orders:
+                  value: >-
+                    {"command":"SELECT","rowCount":1,"oid":null,"rows":[{"status":"pending","id":1,"quantity":30,"product_id":111,"customer_id":11}],"fields":[{"name":"status","tableID":16735,"columnID":1,"dataTypeID":1043,"dataTypeSize":-1,"dataTypeModifier":54,"format":"text"},{"name":"id","tableID":16735,"columnID":2,"dataTypeID":23,"dataTypeSize":4,"dataTypeModifier":-1,"format":"text"},{"name":"quantity","tableID":16735,"columnID":3,"dataTypeID":23,"dataTypeSize":4,"dataTypeModifier":-1,"format":"text"},{"name":"product_id","tableID":16735,"columnID":4,"dataTypeID":23,"dataTypeSize":4,"dataTypeModifier":-1,"format":"text"},{"name":"customer_id","tableID":16735,"columnID":5,"dataTypeID":23,"dataTypeSize":4,"dataTypeModifier":-1,"format":"text"}],"_parsers":[null,null,null,null,null],"_types":{"_types":{"arrayParser":{},"builtins":{"BOOL":16,"BYTEA":17,"CHAR":18,"INT8":20,"INT2":21,"INT4":23,"REGPROC":24,"TEXT":25,"OID":26,"TID":27,"XID":28,"CID":29,"JSON":114,"XML":142,"PG_NODE_TREE":194,"SMGR":210,"PATH":602,"POLYGON":604,"CIDR":650,"FLOAT4":700,"FLOAT8":701,"ABSTIME":702,"RELTIME":703,"TINTERVAL":704,"CIRCLE":718,"MACADDR8":774,"MONEY":790,"MACADDR":829,"INET":869,"ACLITEM":1033,"BPCHAR":1042,"VARCHAR":1043,"DATE":1082,"TIME":1083,"TIMESTAMP":1114,"TIMESTAMPTZ":1184,"INTERVAL":1186,"TIMETZ":1266,"BIT":1560,"VARBIT":1562,"NUMERIC":1700,"REFCURSOR":1790,"REGPROCEDURE":2202,"REGOPER":2203,"REGOPERATOR":2204,"REGCLASS":2205,"REGTYPE":2206,"UUID":2950,"TXID_SNAPSHOT":2970,"PG_LSN":3220,"PG_NDISTINCT":3361,"PG_DEPENDENCIES":3402,"TSVECTOR":3614,"TSQUERY":3615,"GTSVECTOR":3642,"REGCONFIG":3734,"REGDICTIONARY":3769,"JSONB":3802,"REGNAMESPACE":4089,"REGROLE":4096}},"text":{},"binary":{}},"RowCtor":null,"rowAsArray":false,"_prebuiltEmptyResultObject":{"status":null,"id":null,"quantity":null,"product_id":null,"customer_id":null}}
+      tags:
+        - orders
+  /customers:
+    summary: to retrive complete information of every customer present in database.
+    get:
+      summary: To retrieve complete information of customers present in our database
+      description: >-
+        To get complete information of customers present in the customers table
+        of our database.
+      operationId: get_customers
+      responses:
+        default:
+          description: Default error sample response
+          content:
+            application/json:
+              examples:
+                get_customers:
+                  value: >-
+                    {"command":"SELECT","rowCount":1,"oid":null,"rows":[{"customer_id":11,"name":"Narsimha_Reddy","phone_number":"8328104664","password":"987654321"}],"fields":[{"name":"customer_id","tableID":16725,"columnID":1,"dataTypeID":23,"dataTypeSize":4,"dataTypeModifier":-1,"format":"text"},{"name":"name","tableID":16725,"columnID":2,"dataTypeID":1043,"dataTypeSize":-1,"dataTypeModifier":54,"format":"text"},{"name":"phone_number","tableID":16725,"columnID":3,"dataTypeID":1043,"dataTypeSize":-1,"dataTypeModifier":54,"format":"text"},{"name":"password","tableID":16725,"columnID":4,"dataTypeID":25,"dataTypeSize":-1,"dataTypeModifier":-1,"format":"text"}],"_parsers":[null,null,null,null],"_types":{"_types":{"arrayParser":{},"builtins":{"BOOL":16,"BYTEA":17,"CHAR":18,"INT8":20,"INT2":21,"INT4":23,"REGPROC":24,"TEXT":25,"OID":26,"TID":27,"XID":28,"CID":29,"JSON":114,"XML":142,"PG_NODE_TREE":194,"SMGR":210,"PATH":602,"POLYGON":604,"CIDR":650,"FLOAT4":700,"FLOAT8":701,"ABSTIME":702,"RELTIME":703,"TINTERVAL":704,"CIRCLE":718,"MACADDR8":774,"MONEY":790,"MACADDR":829,"INET":869,"ACLITEM":1033,"BPCHAR":1042,"VARCHAR":1043,"DATE":1082,"TIME":1083,"TIMESTAMP":1114,"TIMESTAMPTZ":1184,"INTERVAL":1186,"TIMETZ":1266,"BIT":1560,"VARBIT":1562,"NUMERIC":1700,"REFCURSOR":1790,"REGPROCEDURE":2202,"REGOPER":2203,"REGOPERATOR":2204,"REGCLASS":2205,"REGTYPE":2206,"UUID":2950,"TXID_SNAPSHOT":2970,"PG_LSN":3220,"PG_NDISTINCT":3361,"PG_DEPENDENCIES":3402,"TSVECTOR":3614,"TSQUERY":3615,"GTSVECTOR":3642,"REGCONFIG":3734,"REGDICTIONARY":3769,"JSONB":3802,"REGNAMESPACE":4089,"REGROLE":4096}},"text":{},"binary":{}},"RowCtor":null,"rowAsArray":false,"_prebuiltEmptyResultObject":{"customer_id":null,"name":null,"phone_number":null,"password":null}}
+      tags:
+        - customers
+  /customers/:id:
+    summary: To delete a particular customer in the database.
+  /products:
+    summary: To retrieve information about all products present in our database.
+    get:
+      summary: To retrieve complete information about all products
+      description: To get complete information about all products present in our database.
+      operationId: get_products
+      responses:
+        default:
+          description: Default error sample response
+          content:
+            application/json:
+              examples:
+                GET http://localhost:8080/products:
+                  value: >-
+                    {"command":"SELECT","rowCount":1,"oid":null,"rows":[{"product_id":111,"name":"AK47","specifications":"Rugged"}],"fields":[{"name":"product_id","tableID":16730,"columnID":1,"dataTypeID":23,"dataTypeSize":4,"dataTypeModifier":-1,"format":"text"},{"name":"name","tableID":16730,"columnID":2,"dataTypeID":1043,"dataTypeSize":-1,"dataTypeModifier":54,"format":"text"},{"name":"specifications","tableID":16730,"columnID":3,"dataTypeID":1043,"dataTypeSize":-1,"dataTypeModifier":54,"format":"text"}],"_parsers":[null,null,null],"_types":{"_types":{"arrayParser":{},"builtins":{"BOOL":16,"BYTEA":17,"CHAR":18,"INT8":20,"INT2":21,"INT4":23,"REGPROC":24,"TEXT":25,"OID":26,"TID":27,"XID":28,"CID":29,"JSON":114,"XML":142,"PG_NODE_TREE":194,"SMGR":210,"PATH":602,"POLYGON":604,"CIDR":650,"FLOAT4":700,"FLOAT8":701,"ABSTIME":702,"RELTIME":703,"TINTERVAL":704,"CIRCLE":718,"MACADDR8":774,"MONEY":790,"MACADDR":829,"INET":869,"ACLITEM":1033,"BPCHAR":1042,"VARCHAR":1043,"DATE":1082,"TIME":1083,"TIMESTAMP":1114,"TIMESTAMPTZ":1184,"INTERVAL":1186,"TIMETZ":1266,"BIT":1560,"VARBIT":1562,"NUMERIC":1700,"REFCURSOR":1790,"REGPROCEDURE":2202,"REGOPER":2203,"REGOPERATOR":2204,"REGCLASS":2205,"REGTYPE":2206,"UUID":2950,"TXID_SNAPSHOT":2970,"PG_LSN":3220,"PG_NDISTINCT":3361,"PG_DEPENDENCIES":3402,"TSVECTOR":3614,"TSQUERY":3615,"GTSVECTOR":3642,"REGCONFIG":3734,"REGDICTIONARY":3769,"JSONB":3802,"REGNAMESPACE":4089,"REGROLE":4096}},"text":{},"binary":{}},"RowCtor":null,"rowAsArray":false,"_prebuiltEmptyResultObject":{"product_id":null,"name":null,"specifications":null}}
+      tags:
+        - products
+  /neworder:
+    summary: To enter new order details into the orders table in our database.
+    post:
+      summary: To enter new order details into the orders table in our database.
+      description: To post new order into our orders table in our database.
+      operationId: post_neworder
+      responses:
+        default:
+          description: Default error sample response
+          content:
+            application/json:
+              examples:
+                POST http://localhost:8080/neworder:
+                  value: |-
+                    {
+                       "status":"pending",
+                       "id": 2,
+                       "quantity": 4,
+                       "product_id": 112,
+                       "customer_id": 12
+                    }
+
+                    POST request received
+      tags:
+        - orders
+  /newcustomer:
+    summary: To enter details on new customer
+    post:
+      summary: To enter details of new customer into our database
+      description: >-
+        To enter details of new customer into our database in the customers
+        table
+      operationId: post_customer
+      responses:
+        default:
+          description: Default error sample response
+          content:
+            text/plain; charset=utf-8:
+              examples:
+                POST http://localhost:8080/newcustomer:
+                  value: |-
+                    {
+                       "customer_id": 12,
+                       "name": "vinnu",
+                       "phone_number": "987654321",
+                       "password":"poiuytrewq"
+                    }
+
+                    POST request received
+      tags:
+        - customers
+  /newproduct:
+    summary: To enter details of new product into our database.
+    post:
+      summary: To enter new product details into our database
+      description: To enter a new product details into our database in our products table.
+      operationId: post_product
+      responses:
+        default:
+          description: Default error sample response
+          content:
+            text/plain; charset=utf-8:
+              examples:
+                POST http://localhost:8080/newproduct:
+                  value: |-
+                    {
+                        "product_id": 112,
+                        "name": "Shirts",   
+                        "specifications":"Brown in color"
+                    }
+
+                    POST Request Received
+      tags:
+        - products
+  /customer/{id}:
+    summary: To update name or phone number of a particular customer.
+    put:
+      summary: To update name or phone number of a particular customer.
+      description: >-
+        To change name or phone number of a particular customer in customers
+        table in the database.
+      operationId: update_customers
+      parameters:
+      - name: id
+        in: path
+        description: 'ID of the customer'
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: Default error sample response
+          content:
+            application/json:
+              examples:
+                PUT http://localhost:8080/customers/12:
+                  value: |-
+                    {
+                       "phone_number":"912345678"
+                    }
+
+                    Update Completed
+      tags:
+        - customers
+    delete:
+      summary: >-
+        To delete the particular customer details in the customers table in the
+        database schema.
+      description: >-
+        To delete the particular customer details in the customers table in the
+        database schema.
+      operationId: delete_customers
+      parameters:
+      - name: id
+        in: path
+        description: 'ID of the customer'
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: Default error sample response
+          content:
+            application/json:
+              examples:
+                'DELETE ':
+                  value: Deleted
+      tags:
+        - customers
+  /products/{id}:
+    summary: To update name or specifications of a particular product.
+    put:
+      summary: To update name or specifications of a particular product.
+      description: >-
+        To update name or specifications of a particular product in the products
+        table in the database schema.
+      operationId: update_products
+      parameters:
+      - name: id
+        in: path
+        description: 'ID of the products'
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: Default error sample response
+          content:
+            application/json:
+              examples:
+                PUT http://localhost:8080/products/112:
+                  value: |-
+                    {
+                        "specifications":"Empty nothing written"
+                    }
+
+                    Update Completed
+      tags:
+        - products
+    delete:
+      summary: 'To delete a product in the products table. '
+      description: To delete a product in the products table of the database schema.
+      operationId: delete_products
+      parameters:
+      - name: id
+        in: path
+        description: 'ID of the products'
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: Default error sample response
+          content:
+            application/json:
+              examples:
+                DELETE http://localhost:8080/products/112:
+                  value: Deleted
+      tags:
+        - products
