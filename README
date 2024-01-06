@@ -1,0 +1,2 @@
+THIS API USES PostgreSQL.
+To run on local machine we need to have PostgreSQL installed on that machine and configured according to the details provided in index.js 
